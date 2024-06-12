@@ -8,8 +8,8 @@
 replicaCount: 1
 
 image:
-  repository: opea/chatqna:latest
-  pullPolicy: IfNotPresent
+  repository: opea/chatqna:0606
+  pullPolicy: Never
   # Overrides the image tag whose default is the chart appVersion.
   # tag: "1.0"
 
@@ -20,7 +20,7 @@ service:
 
 # To override values in subchart llm-uservice
 llm-uservice:
-  HUGGINGFACEHUB_API_TOKEN: "insert-your-huggingface-token-here"
+  HUGGINGFACEHUB_API_TOKEN: "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"
 # To override values in subchart tgi
   tgi:
     LLM_MODEL_ID: Intel/neural-chat-7b-v3-3
@@ -28,9 +28,9 @@ llm-uservice:
     volume: /mnt
 
 global:
-  http_proxy:
-  https_proxy:
-  no_proxy:
-  # HUGGINGFACEHUB_API_TOKEN: "insert-your-huggingface-token-here"
+  http_proxy: "http://proxy-dmz.intel.com:912"
+  https_proxy: "http://proxy-dmz.intel.com:912"
+  no_proxy: ".default.svc.cluster.local,.intel.com,10.0.0.0/8,192.168.0.0/16,localhost,127.0.0.0/8,134.134.0.0/16,10.238.154.145,10.45.178.136,10.45.178.133,chatqna,chatqna-embedding-usvc,chatqna-llm-uservice,chatqna-redis-vector-db,chatqna-reranking-usvc,chatqna-retriever-usvc,chatqna-tei,chatqna-teirerank,chatqna-tgi"
+    #HUGGINGFACEHUB_API_TOKEN: "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"
   LANGCHAIN_TRACING_V2: false
   LANGCHAIN_API_KEY: "insert-your-langchain-key-here"

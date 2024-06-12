@@ -9,7 +9,7 @@ replicaCount: 1
 # HUGGINGFACEHUB_API_TOKEN: "insert-your-huggingface-token-here"
 
 image:
-  repository: opea/embedding-tei:latest
+  repository: opea/embedding-tei:0606
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   #tag: "1.0"
